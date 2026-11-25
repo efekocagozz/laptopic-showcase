@@ -91,17 +91,3 @@ demonstrates.
   mocked e2e tests.
 - **Real invoices (numbering, PDF), and rate limiting on public forms.**
 
-## CV entry
-
-**Laptopic: Dutch webshop with in3 installments** | TypeScript, Vendure/NestJS, GraphQL, Next.js, PostgreSQL,
-Python, Docker
-
-- Built a Dutch webshop (Vendure backend, Next.js storefront) with Mollie iDEAL and in3 payments. Installment
-  eligibility is enforced server-side, and webhooks are verified by re-fetching the payment from Mollie.
-- Automated supplier operations: a nightly stock/price sync plugin, plus a Python CLI that converts messy supplier
-  exports (Dutch decimals, prices excl. VAT) to integer-cent import files and writes them atomically.
-- Wrote a Python reporting tool on the Vendure Admin API (GraphQL) for daily revenue, iDEAL/in3 split,
-  unsettled payments and low-stock alerts. It is tested with pytest and respx and type-checked with mypy
-  (strict).
-- Developed with an AI coding agent under a written engineering standard. Reviewed the output for architecture,
-  security and tests, with unit, e2e and Playwright suites in GitHub Actions and a Docker/Caddy production stack.
