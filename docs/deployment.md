@@ -108,6 +108,10 @@ merging and `@defer`/`@stream`, which this shop doesn't use with untrusted input
 Vendure's own dependencies with new major versions, which could break Vendure, so we wait for Vendure's update
 (Dependabot opens the pull request). Rate limiting for public forms is best added at the proxy if abuse appears.
 
+Dependabot holds back **major** versions of TypeScript, graphql and ESLint (`.github/dependabot.yml`). They have
+to move together with Vendure and the Next.js starter, so upgrade them on purpose, in a single change, once those
+support the new versions.
+
 ## 6. Monitoring
 
 - `docker compose -f docker-compose.prod.yml ps` shows health; the server and storefront have health checks and
