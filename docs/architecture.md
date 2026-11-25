@@ -104,3 +104,4 @@ See [`docs/decisions/`](decisions/):
 3. [Vendure + Next.js instead of Shopify, WooCommerce or Medusa](decisions/0003-vendure-and-nextjs.md)
 4. [Fork the official Next.js starter](decisions/0004-fork-the-nextjs-starter.md)
 5. [Operations automation as a separate Python tool](decisions/0005-python-ops-automation.md)
+6. [Caddy as the reverse proxy (not Nginx)](decisions/0006-caddy-as-reverse-proxy.md)

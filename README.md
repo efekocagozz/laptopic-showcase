@@ -24,8 +24,8 @@ What this project shows, and where to look:
 | **Python process automation** | `laptopic-ops`, a typed CLI run by cron. It turns a messy supplier spreadsheet into the shop's import file and builds a daily report (revenue, iDEAL vs in3, unsettled payments, low stock) from the Admin API. → [`automation/`](automation/README.md), [ADR 0005](docs/decisions/0005-python-ops-automation.md) |
 | **Working in an existing codebase** | The storefront is a fork of Vendure's official Next.js starter, translated to Dutch and restyled, with feature-sliced folders and tests that enforce import boundaries. → [ADR 0004](docs/decisions/0004-fork-the-nextjs-starter.md) |
 | **Tested** | 30 backend unit tests, 22 backend e2e tests (a real Vendure server, Mollie mocked), 67 Python tests (mypy strict), and Playwright on desktop and mobile. All of it runs in CI, including the Python report against a live seeded backend. |
-| **Production-ready setup** | `docker-compose.prod.yml` with Caddy (HTTPS), a separate worker and Postgres. The server refuses to start with weak settings. Backups and a security checklist are included. → [docs/deployment.md](docs/deployment.md) |
-| **Decisions written down** | Five ADRs, a lessons-learned log and a Dutch/EU legal checklist. → [docs/](docs/) |
+| **Production-ready setup** | `docker-compose.prod.yml` with Caddy (HTTPS), a separate worker and Postgres. Why Caddy and not Nginx: [ADR 0006](docs/decisions/0006-caddy-as-reverse-proxy.md). The server refuses to start with weak settings. Backups and a security checklist are included. → [docs/deployment.md](docs/deployment.md) |
+| **Decisions written down** | Six ADRs, a lessons-learned log and a Dutch/EU legal checklist. → [docs/](docs/) |
 
 ## What the shop does
 

@@ -11,7 +11,7 @@ Internet ─► Caddy (HTTPS, ports 80/443)
             postgres (data in a Docker volume)
 ```
 
-Caddy gets and renews the HTTPS certificates itself. Only ports 80 and 443 are open to the internet.
+Caddy gets and renews the HTTPS certificates itself ([why Caddy](decisions/0006-caddy-as-reverse-proxy.md)). Only ports 80 and 443 are open to the internet.
 
 ## 1. What you need
 
