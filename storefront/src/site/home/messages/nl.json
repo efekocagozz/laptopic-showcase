@@ -1,0 +1,38 @@
+{
+  "Hero": {
+    "title": "Zakelijke laptops,",
+    "titleHighlight": "als nieuw",
+    "subtitle": "Refurbished ThinkPad, Latitude en EliteBook. Getest, met 12 maanden garantie, en te betalen in 3 termijnen zonder rente.",
+    "shopNow": "Bekijk laptops",
+    "viewCollections": "Alle categorieën",
+    "pointTested": "Getest, gereinigd en opnieuw geïnstalleerd",
+    "pointWarranty": "12 maanden garantie en 14 dagen bedenktijd",
+    "pointDelivery": "Voor 17:00 besteld, morgen in huis",
+    "in3Badge": "0% rente",
+    "in3Title": "Betaal in 3 termijnen met in3",
+    "in3Step1": "Vandaag betaal je het eerste deel via iDEAL.",
+    "in3Step2": "Na 30 dagen volgt het tweede deel.",
+    "in3Step3": "Na 60 dagen betaal je het laatste deel.",
+    "in3Note": "Zonder rente of extra kosten. Beschikbaar voor bestellingen binnen het in3-bedrag, voor klanten in Nederland."
+  },
+  "Home": {
+    "pageTitle": "Refurbished zakelijke laptops",
+    "description": "Refurbished zakelijke laptops van Lenovo, Dell en HP. Getest, met 12 maanden garantie, en te betalen in 3 termijnen met in3.",
+    "ogDescription": "Refurbished zakelijke laptops met garantie, te betalen in 3 termijnen.",
+    "whyShopWithUs": "Waarom Laptopic",
+    "features": {
+      "highQuality": {
+        "title": "Getest en gereinigd",
+        "description": "Elke laptop wordt gecontroleerd, schoongemaakt en opnieuw geïnstalleerd"
+      },
+      "bestPrices": {
+        "title": "Betaal in 3 termijnen",
+        "description": "Met in3 betaal je in drie delen, zonder rente of extra kosten"
+      },
+      "fastDelivery": {
+        "title": "Morgen in huis",
+        "description": "Op werkdagen voor 17:00 besteld, de volgende werkdag bezorgd met PostNL"
+      }
+    }
+  }
+}

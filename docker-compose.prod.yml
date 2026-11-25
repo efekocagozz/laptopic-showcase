@@ -1,0 +1,121 @@
+# Production stack for one server (VPS): Caddy (HTTPS) → storefront + Vendure server/worker → Postgres.
+# Full instructions: docs/deployment.md. Short version, with .env.production filled in:
+#   docker compose -f docker-compose.prod.yml --env-file .env.production up -d --build postgres server worker
+#   docker compose -f docker-compose.prod.yml --env-file .env.production run --rm server node dist/seed/seed.js   # optional, empty DB only: demo catalogue
+#   docker compose -f docker-compose.prod.yml --env-file .env.production up -d --build storefront caddy
+# The storefront is built after the server is up, because its build reads data from the Shop API.
+name: laptopic-prod
+
+x-backend-env: &backend-env
+    APP_ENV: production
+    NODE_ENV: production
+    COOKIE_SECRET: ${COOKIE_SECRET:?}
+    SUPERADMIN_USERNAME: ${SUPERADMIN_USERNAME:?}
+    SUPERADMIN_PASSWORD: ${SUPERADMIN_PASSWORD:?}
+    DB_HOST: postgres
+    DB_PORT: 5432
+    DB_NAME: ${DB_NAME:-vendure}
+    DB_USERNAME: ${DB_USERNAME:-vendure}
+    DB_PASSWORD: ${DB_PASSWORD:?}
+    DB_SCHEMA: public
+    STOREFRONT_URL: https://${SHOP_DOMAIN:?}
+    VENDURE_PUBLIC_URL: https://${API_DOMAIN:?}
+    CORS_ORIGINS: https://${SHOP_DOMAIN:?}
+    ASSET_URL_PREFIX: https://${API_DOMAIN:?}/assets/
+    SMTP_HOST: ${SMTP_HOST:?}
+    SMTP_PORT: ${SMTP_PORT:-587}
+    SMTP_USER: ${SMTP_USER:?}
+    SMTP_PASSWORD: ${SMTP_PASSWORD:?}
+    EMAIL_FROM: ${EMAIL_FROM:-}
+    MOLLIE_API_KEY: ${MOLLIE_API_KEY:-}
+    SUPPLIER_FEED_PATH: ${SUPPLIER_FEED_PATH:-}
+
+# Node-based HTTP checks, because the slim images have no curl.
+x-http-healthcheck: &http-healthcheck
+    interval: 15s
+    timeout: 5s
+    retries: 5
+    start_period: 60s
+
+services:
+    postgres:
+        image: postgres:16-alpine
+        environment:
+            POSTGRES_DB: ${DB_NAME:-vendure}
+            POSTGRES_USER: ${DB_USERNAME:-vendure}
+            POSTGRES_PASSWORD: ${DB_PASSWORD:?}
+        volumes:
+            - postgres_data:/var/lib/postgresql/data
+        healthcheck:
+            test: ['CMD-SHELL', 'pg_isready -U "$${POSTGRES_USER}" -d "$${POSTGRES_DB}"']
+            interval: 2s
+            retries: 30
+        restart: unless-stopped
+
+    server:
+        build: ./backend
+        command: ['node', 'dist/index.js']
+        environment: *backend-env
+        # Only reachable from this machine (for the storefront build); the public goes through Caddy.
+        ports: ['127.0.0.1:3000:3000']
+        volumes:
+            - assets:/app/static/assets
+        depends_on:
+            postgres:
+                condition: service_healthy
+        healthcheck:
+            <<: *http-healthcheck
+            test: ['CMD', 'node', '-e', "fetch('http://localhost:3000/health').then(r => process.exit(r.ok ? 0 : 1), () => process.exit(1))"]
+        restart: unless-stopped
+
+    worker:
+        build: ./backend
+        command: ['node', 'dist/index-worker.js']
+        environment: *backend-env
+        volumes:
+            - assets:/app/static/assets
+        depends_on:
+            postgres:
+                condition: service_healthy
+        restart: unless-stopped
+
+    storefront:
+        build:
+            context: ./storefront
+            # The build talks to the server published on this machine.
+            network: host
+            args:
+                VENDURE_SHOP_API_URL: http://localhost:3000/shop-api
+                NEXT_PUBLIC_SITE_URL: https://${SHOP_DOMAIN:?}
+                ASSET_HOSTNAME: ${API_DOMAIN:?}
+        environment:
+            VENDURE_SHOP_API_URL: http://server:3000/shop-api
+            NEXT_PUBLIC_SITE_URL: https://${SHOP_DOMAIN:?}
+            REVALIDATION_SECRET: ${REVALIDATION_SECRET:?}
+        depends_on:
+            server:
+                condition: service_healthy
+        healthcheck:
+            <<: *http-healthcheck
+            test: ['CMD', 'node', '-e', "fetch('http://localhost:3001').then(r => process.exit(r.ok ? 0 : 1), () => process.exit(1))"]
+        restart: unless-stopped
+
+    # Reverse proxy with automatic HTTPS certificates (Let's Encrypt) for both domains.
+    caddy:
+        image: caddy:2-alpine
+        environment:
+            SHOP_DOMAIN: ${SHOP_DOMAIN:?}
+            API_DOMAIN: ${API_DOMAIN:?}
+        ports: ['80:80', '443:443']
+        volumes:
+            - ./deploy/Caddyfile:/etc/caddy/Caddyfile:ro
+            - caddy_data:/data
+            - caddy_config:/config
+        depends_on: [server, storefront]
+        restart: unless-stopped
+
+volumes:
+    postgres_data:
+    assets:
+    caddy_data:
+    caddy_config:

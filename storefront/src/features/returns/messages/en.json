@@ -1,0 +1,30 @@
+{
+  "Returns": {
+    "pageTitle": "Request a return",
+    "intro": "Request your return within 14 days of receiving your order. You can find your order number in the confirmation email.",
+    "orderCode": "Order number",
+    "emailAddress": "Email address used for the order",
+    "reason": "Reason",
+    "reasons": {
+      "WITHDRAWAL": "I want to use my cooling-off period",
+      "DEFECT": "The product is defective",
+      "WRONG_ITEM": "I received the wrong product",
+      "OTHER": "Other"
+    },
+    "comment": "Comment (optional)",
+    "submit": "Request return",
+    "submitting": "Sending...",
+    "orderCodeRequired": "Enter your order number",
+    "invalidEmail": "Enter a valid email address",
+    "commentTooLong": "Your comment can be at most 1000 characters",
+    "successTitle": "Return request received",
+    "success": "We received your return request for order {code}. You'll get a confirmation by email and a return label within two working days.",
+    "errors": {
+      "ORDER_NOT_FOUND": "We couldn't find an order with this order number and email address.",
+      "NOT_RETURNABLE": "This order can't be returned (yet). Please contact us.",
+      "RETURN_PERIOD_EXPIRED": "The return period for this order has ended. Contact us if you think this is wrong.",
+      "INVALID_INPUT": "Please check the details you entered.",
+      "UNKNOWN": "Something went wrong. Please try again later."
+    }
+  }
+}

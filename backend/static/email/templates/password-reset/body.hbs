@@ -1,0 +1,16 @@
+{{> header title="Nieuw wachtwoord instellen" }}
+
+<mj-section background-color="#ffffff" border-radius="12px" padding="24px">
+    <mj-column>
+        <mj-text>
+            <h2>Nieuw wachtwoord instellen</h2>
+            Iemand heeft een nieuw wachtwoord aangevraagd voor je account. Klik op de knop om een nieuw wachtwoord in te stellen.
+        </mj-text>
+        <mj-button href="{{ passwordResetUrl }}?token={{ passwordResetToken }}">Wachtwoord instellen</mj-button>
+        <mj-text font-size="13px" color="#6b7280">
+            Heb je dit niet aangevraagd? Dan kun je deze e-mail negeren; er is niets aan je account veranderd.
+        </mj-text>
+    </mj-column>
+</mj-section>
+
+{{> footer }}

@@ -1,0 +1,21 @@
+{{> header title="Je bestelling is onderweg" }}
+
+<mj-section background-color="#ffffff" border-radius="12px" padding="24px">
+    <mj-column>
+        <mj-text>
+            <h2>Je bestelling is onderweg!</h2>
+            Hoi {{ order.customer.firstName }}, we hebben bestelling <strong>{{ order.code }}</strong> verzonden met PostNL.
+        </mj-text>
+        {{#if trackingCodes.length }}
+        <mj-text>
+            <strong>Track-and-trace:</strong>
+            {{#each trackingCodes }}<br />{{ this }}{{/each}}
+        </mj-text>
+        {{/if}}
+        <mj-text font-size="13px" color="#6b7280">
+            Je {{ withdrawalPeriodDays }} dagen bedenktijd gaan in op de dag dat je het pakket ontvangt.
+        </mj-text>
+    </mj-column>
+</mj-section>
+
+{{> footer }}

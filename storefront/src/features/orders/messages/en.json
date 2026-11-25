@@ -1,0 +1,32 @@
+{
+  "OrderStatus": {
+    "AddingItems": "Adding Items",
+    "ArrangingPayment": "Arranging Payment",
+    "PaymentAuthorized": "Payment Authorized",
+    "PaymentSettled": "Payment Settled",
+    "PartiallyShipped": "Partially Shipped",
+    "Shipped": "Shipped",
+    "PartiallyDelivered": "Partially Delivered",
+    "Delivered": "Delivered",
+    "Cancelled": "Cancelled"
+  },
+  "OrderConfirmation": {
+    "pageTitle": "Order Confirmation",
+    "orderConfirmed": "Order Confirmed!",
+    "thankYou": "Thank you for your order. Your order number is",
+    "emailConfirmation": "We'll send you an email with your order details and tracking information.",
+    "orderSummary": "Order Summary",
+    "qty": "Qty: {quantity}",
+    "total": "Total",
+    "shippingAddress": "Shipping Address",
+    "continueShopping": "Continue Shopping",
+    "viewOrders": "View Orders",
+    "paymentPendingTitle": "Processing your payment",
+    "paymentPending": "One moment: we're waiting for Mollie to confirm the payment for order {code}.",
+    "paymentNotConfirmedTitle": "Payment not confirmed yet",
+    "paymentNotConfirmed": "We haven't received confirmation of your payment (yet). If the payment failed or was cancelled, your cart is still there and you can try again.",
+    "tryAgain": "Try again",
+    "cancelledTitle": "Order cancelled",
+    "cancelled": "Order {code} has been cancelled. If you already paid, the amount will be refunded automatically."
+  }
+}

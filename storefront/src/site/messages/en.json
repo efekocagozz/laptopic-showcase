@@ -1,0 +1,29 @@
+{
+  "NotFound": {
+    "title": "Page Not Found",
+    "message": "The page you are looking for does not exist, has been moved, or is temporarily unavailable.",
+    "goHome": "Go to Home",
+    "browseProducts": "Browse Products",
+    "popularCollections": "Popular Collections"
+  },
+  "Footer": {
+    "description": "Refurbished business laptops with warranty. A portfolio project: all products and payments are fictional.",
+    "categories": "Categories",
+    "customer": "My account",
+    "shopAll": "Shop All",
+    "orders": "Orders",
+    "account": "Account",
+    "copyright": "Laptopic. All rights reserved.",
+    "poweredBy": "Built with",
+    "service": "Customer service",
+    "shipping": "Shipping and delivery",
+    "returns": "Returns",
+    "withdrawal": "Right of withdrawal",
+    "warranty": "Warranty",
+    "terms": "Terms and conditions",
+    "privacy": "Privacy and cookies",
+    "contact": "Contact",
+    "recycling": "Recycling old devices",
+    "companyDetails": "{name} · {address} · Chamber of Commerce {kvk} · VAT {btw}"
+  }
+}

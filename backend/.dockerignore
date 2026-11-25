@@ -1,0 +1,12 @@
+# .env holds local development settings and secrets; pass production values at run time instead.
+.env
+.env.*
+!.env.example
+node_modules
+dist
+.git
+*.log
+test
+test/__data__
+static/assets
+static/email/test-emails

@@ -1,0 +1,119 @@
+{{> header title="Bedankt voor je bestelling" }}
+
+<mj-raw>
+    <style type="text/css">
+    tr.line td { border-bottom: 1px solid #eee; padding: 8px 4px; }
+    tr.line td.amount, tr.total td.amount { text-align: right; white-space: nowrap; }
+    tr.total td { padding: 6px 4px; }
+    tr.grand td { font-weight: bold; font-size: 16px; border-top: 2px solid #111827; }
+    ul.address { list-style-type: none; padding: 0; margin: 0; }
+    </style>
+</mj-raw>
+
+<mj-section background-color="#ffffff" border-radius="12px" padding="24px">
+    <mj-column>
+        <mj-text>
+            <h2>Bedankt voor je bestelling!</h2>
+            Hoi {{ order.customer.firstName }}, we hebben je betaling ontvangen en gaan je bestelling klaarmaken.
+            Je krijgt een nieuwe e-mail met de track-and-tracecode zodra we hem verzenden.
+        </mj-text>
+        <mj-text>
+            <strong>Bestelnummer:</strong> {{ order.code }}<br />
+            <strong>Besteldatum:</strong> {{ formatDate order.orderPlacedAt "d-m-yyyy" }}
+        </mj-text>
+
+        <mj-table cellpadding="0">
+            {{#each order.lines }}
+            <tr class="line">
+                <td>{{ quantity }} × {{ productVariant.name }}</td>
+                <td class="amount">{{ formatMoney discountedLinePriceWithTax ../order.currencyCode 'nl-NL' }}</td>
+            </tr>
+            {{/each}}
+            {{#each order.discounts }}
+            <tr class="line">
+                <td>{{ description }}</td>
+                <td class="amount">{{ formatMoney amountWithTax ../order.currencyCode 'nl-NL' }}</td>
+            </tr>
+            {{/each}}
+            {{#each shippingLines }}
+            <tr class="line">
+                <td>Verzending ({{ shippingMethod.name }})</td>
+                <td class="amount">{{ formatMoney priceWithTax ../order.currencyCode 'nl-NL' }}</td>
+            </tr>
+            {{/each}}
+            <tr class="total grand">
+                <td>Totaal (incl. btw)</td>
+                <td class="amount">{{ formatMoney order.totalWithTax order.currencyCode 'nl-NL' }}</td>
+            </tr>
+        </mj-table>
+    </mj-column>
+</mj-section>
+
+<mj-section padding="8px 0 0">
+    <mj-column>
+        <mj-text>
+            <h3>Btw-specificatie</h3>
+        </mj-text>
+        <mj-table cellpadding="0">
+            <tr class="line">
+                <td class="muted">Tarief</td>
+                <td class="amount muted">Bedrag excl. btw</td>
+                <td class="amount muted">Btw</td>
+            </tr>
+            {{#each vatSummary }}
+            <tr class="line">
+                <td>{{ taxRate }}%</td>
+                <td class="amount">{{ formatMoney taxBase ../order.currencyCode 'nl-NL' }}</td>
+                <td class="amount">{{ formatMoney taxTotal ../order.currencyCode 'nl-NL' }}</td>
+            </tr>
+            {{/each}}
+        </mj-table>
+        <mj-text font-size="13px" color="#6b7280">
+            Dit is je orderbevestiging. {{ company.name }}, {{ company.address }}, KVK {{ company.kvkNumber }}, btw {{ company.btwNumber }}.
+        </mj-text>
+    </mj-column>
+</mj-section>
+
+<mj-section padding="8px 0 0">
+    <mj-column>
+        <mj-text>
+            {{#with order.shippingAddress }}
+            <h3>Bezorgadres</h3>
+            <ul class="address">
+                <li>{{ fullName }}</li>
+                {{#if company}}<li>{{ company }}</li>{{/if}}
+                <li>{{ streetLine1 }}{{#if streetLine2}} {{ streetLine2 }}{{/if}}</li>
+                <li>{{ postalCode }} {{ city }}</li>
+            </ul>
+            {{/with}}
+        </mj-text>
+        <mj-text>
+            <h3>Bedenktijd (herroepingsrecht)</h3>
+            Je hebt {{ withdrawalPeriodDays }} dagen bedenktijd vanaf de dag dat je de bestelling ontvangt. Laat ons binnen die
+            termijn weten dat je de koop herroept, via <a href="{{ storefrontUrl }}/returns" style="color:#0b5d47">onze retourpagina</a>,
+            per e-mail aan {{ company.email }} of met het modelformulier hieronder. Je stuurt het product daarna binnen
+            {{ withdrawalPeriodDays }} dagen terug; de kosten van het terugsturen zijn voor jou, behalve bij een defect of verkeerd
+            artikel. We betalen het aankoopbedrag inclusief de oorspronkelijke verzendkosten binnen {{ withdrawalPeriodDays }} dagen terug.
+        </mj-text>
+        <mj-text font-size="13px" color="#374151" padding-top="0">
+            <strong>Modelformulier voor herroeping</strong><br />
+            Aan: {{ company.name }}, {{ company.address }}, {{ company.email }}<br />
+            Ik deel u hierbij mede dat ik onze overeenkomst betreffende de verkoop van de volgende producten herroep: …<br />
+            Besteld op / ontvangen op: … — Bestelnummer: {{ order.code }}<br />
+            Naam en adres consument: …<br />
+            Datum: … — Handtekening (alleen bij papieren formulier)
+        </mj-text>
+        <mj-text>
+            <h3>Garantie</h3>
+            Je hebt altijd recht op een product dat doet wat je ervan mag verwachten (wettelijke garantie). Daarnaast geven
+            wij 12 maanden garantie; de accu 6 maanden.
+        </mj-text>
+        <mj-text font-size="13px">
+            Op je bestelling zijn onze <a href="{{ storefrontUrl }}/info/algemene-voorwaarden" style="color:#0b5d47">algemene voorwaarden</a>
+            van toepassing. Lees ook ons <a href="{{ storefrontUrl }}/info/privacybeleid" style="color:#0b5d47">privacybeleid</a>.
+            Vragen of klachten? Mail {{ company.email }}.
+        </mj-text>
+    </mj-column>
+</mj-section>
+
+{{> footer }}

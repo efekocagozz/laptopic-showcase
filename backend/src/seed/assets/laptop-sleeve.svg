@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <rect width="800" height="600" fill="#f4f4f1"/>
+  <rect x="170" y="160" width="460" height="300" rx="30" fill="#3d4a5c"/>
+  <rect x="210" y="300" width="380" height="120" rx="16" fill="#334050"/>
+  <path d="M170 200 h460" stroke="#2a3442" stroke-width="10"/>
+  <text x="400" y="260" font-family="Helvetica, Arial, sans-serif" font-size="30" font-weight="700" fill="#ffffff" text-anchor="middle">14 inch</text>
+</svg>

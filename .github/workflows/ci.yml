@@ -1,0 +1,147 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  backend:
+    name: Backend (types, unit, e2e, build)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: backend
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          # One Node/npm version everywhere (see /.nvmrc); npm 10 and 11 write different lockfiles.
+          node-version-file: .nvmrc
+          cache: npm
+          cache-dependency-path: backend/package-lock.json
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm test
+      # e2e tests use an in-memory SQLite database and mock Mollie; no services needed.
+      - run: npm run test:e2e
+      - run: npm run build
+
+  automation:
+    name: Python automation (lint, types, tests)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: automation
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: automation/pyproject.toml
+      - run: pip install -e ".[dev]"
+      - run: ruff check .
+      - run: ruff format --check .
+      - run: mypy
+      # Unit tests mock the Admin API; the storefront job also runs the report against a real backend.
+      - run: pytest
+
+  storefront:
+    name: Storefront (lint, types, tests, build, Playwright)
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_DB: vendure
+          POSTGRES_USER: vendure
+          POSTGRES_PASSWORD: ci-only-password
+        ports: ['6543:5432']
+        options: >-
+          --health-cmd "pg_isready -U vendure -d vendure"
+          --health-interval 2s --health-timeout 5s --health-retries 20
+    env:
+      # Backend settings for CI only; nothing here is a real secret.
+      APP_ENV: dev
+      COOKIE_SECRET: ci-cookie-secret
+      SUPERADMIN_USERNAME: superadmin
+      SUPERADMIN_PASSWORD: ci-superadmin
+      DB_HOST: localhost
+      DB_PORT: 6543
+      DB_NAME: vendure
+      DB_USERNAME: vendure
+      DB_PASSWORD: ci-only-password
+      DB_SCHEMA: public
+      STOREFRONT_URL: http://localhost:3001
+      # Storefront settings
+      VENDURE_SHOP_API_URL: http://localhost:3000/shop-api
+      NEXT_PUBLIC_SITE_URL: http://localhost:3001
+      ASSET_HOSTNAME: localhost
+      REVALIDATION_SECRET: ci-revalidation-secret
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          # One Node/npm version everywhere (see /.nvmrc); npm 10 and 11 write different lockfiles.
+          node-version-file: .nvmrc
+          cache: npm
+          cache-dependency-path: |
+            backend/package-lock.json
+            storefront/package-lock.json
+
+      - name: Start backend with demo data
+        working-directory: backend
+        run: |
+          npm ci
+          touch .env
+          npm run seed
+          npm run build:server
+          nohup npm run start:server > server.log 2>&1 &
+          npx --yes wait-on@8 --timeout 120000 http-get://localhost:3000/health
+
+      # Integration check for the Python tool: a real Admin API login and queries against the seeded shop.
+      # Exit code 1 only means "needs attention" (the demo catalogue has low-stock variants).
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Python ops report against the running backend
+        working-directory: automation
+        run: |
+          pip install -e .
+          laptopic-ops report || [ $? -eq 1 ]
+
+      - name: Install storefront
+        working-directory: storefront
+        run: npm ci
+      - run: npm test
+        working-directory: storefront
+      - run: npm run lint
+        working-directory: storefront
+      - run: npm run check-types
+        working-directory: storefront
+      # The build prerenders pages with data from the running backend.
+      - run: npm run build
+        working-directory: storefront
+
+      - name: Playwright
+        working-directory: storefront
+        run: |
+          npx playwright install --with-deps chromium
+          nohup npm run start -- --port 3001 > storefront.log 2>&1 &
+          npx --yes wait-on@8 --timeout 60000 http-get://localhost:3001
+          npm run test:e2e
+
+      - name: Upload logs and Playwright report on failure
+        if: failure()
+        uses: actions/upload-artifact@v7
+        with:
+          name: ci-logs
+          path: |
+            backend/server.log
+            storefront/storefront.log
+            storefront/test-results/

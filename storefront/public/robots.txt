@@ -1,0 +1,13 @@
+# Search engines may index the catalogue and information pages, not personal or transactional pages.
+User-agent: *
+Disallow: /cart
+Disallow: /checkout
+Disallow: /account
+Disallow: /order-confirmation
+Disallow: /sign-in
+Disallow: /register
+Disallow: /en/cart
+Disallow: /en/checkout
+Disallow: /en/account
+Disallow: /en/order-confirmation
+Disallow: /api/

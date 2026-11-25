@@ -1,0 +1,11 @@
+{
+  "$schema": "https://raw.githubusercontent.com/vendurehq/nextjs-starter-vendure/main/schemas/storefront.schema.json",
+  "upstream": "https://github.com/vendurehq/nextjs-starter-vendure.git",
+  "version": "1.0.0",
+  "commit": "7d06ae00e09684512ad13ef45077f06de838dc3d",
+  "verification": [
+    "npm run lint",
+    "npm run check-types",
+    "npm run build"
+  ]
+}

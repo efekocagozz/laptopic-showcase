@@ -1,0 +1,24 @@
+{
+  "Cart": {
+    "title": "Winkelwagen",
+    "empty": "Je winkelwagen is leeg",
+    "emptyMessage": "Voeg producten toe om te beginnen",
+    "continueShopping": "Verder winkelen",
+    "each": "per stuk",
+    "orderSummary": "Overzicht",
+    "subtotal": "Subtotaal",
+    "shipping": "Verzending",
+    "calculatedAtCheckout": "Berekend bij afrekenen",
+    "total": "Totaal",
+    "proceedToCheckout": "Verder naar afrekenen",
+    "secureCheckout": "Veilig afrekenen",
+    "promotionCode": "Kortingscode",
+    "enterDiscountCode": "Vul hieronder je kortingscode in",
+    "remove": "Verwijderen",
+    "enterCode": "Code invullen",
+    "apply": "Toepassen",
+    "sku": "Artikelnr.: {sku}",
+    "decreaseQuantity": "Aantal verlagen",
+    "increaseQuantity": "Aantal verhogen"
+  }
+}

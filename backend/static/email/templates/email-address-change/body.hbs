@@ -1,0 +1,14 @@
+{{> header title="Bevestig je nieuwe e-mailadres" }}
+
+<mj-section background-color="#ffffff" border-radius="12px" padding="24px">
+    <mj-column>
+        <mj-text>
+            <h2>Bevestig je nieuwe e-mailadres</h2>
+            We hebben een verzoek ontvangen om het e-mailadres van je account te wijzigen naar dit adres.
+            Klik op de knop om de wijziging te bevestigen.
+        </mj-text>
+        <mj-button href="{{ changeEmailAddressUrl }}?token={{ identifierChangeToken }}">E-mailadres bevestigen</mj-button>
+    </mj-column>
+</mj-section>
+
+{{> footer }}

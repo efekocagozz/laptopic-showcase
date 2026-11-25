@@ -1,0 +1,29 @@
+{
+  "NotFound": {
+    "title": "Pagina niet gevonden",
+    "message": "De pagina die je zoekt bestaat niet, is verplaatst of is tijdelijk niet beschikbaar.",
+    "goHome": "Naar de homepage",
+    "browseProducts": "Bekijk producten",
+    "popularCollections": "Populaire categorieën"
+  },
+  "Footer": {
+    "description": "Refurbished zakelijke laptops met garantie. Een portfolioproject: alle producten en betalingen zijn fictief.",
+    "categories": "Categorieën",
+    "customer": "Mijn account",
+    "shopAll": "Alle producten",
+    "orders": "Bestellingen",
+    "account": "Account",
+    "service": "Klantenservice",
+    "shipping": "Verzending en levering",
+    "returns": "Retourneren",
+    "withdrawal": "Herroepingsrecht",
+    "warranty": "Garantie",
+    "terms": "Algemene voorwaarden",
+    "copyright": "Laptopic. Alle rechten voorbehouden.",
+    "poweredBy": "Gebouwd met",
+    "privacy": "Privacy en cookies",
+    "contact": "Contact",
+    "recycling": "Oude apparaten inleveren",
+    "companyDetails": "{name} · {address} · KVK {kvk} · btw {btw}"
+  }
+}

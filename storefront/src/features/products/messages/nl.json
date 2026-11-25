@@ -1,0 +1,51 @@
+{
+  "Product": {
+    "inStock": "Op voorraad",
+    "outOfStock": "Uitverkocht",
+    "addToCart": "In winkelwagen",
+    "addedToCart": "Toegevoegd",
+    "adding": "Bezig met toevoegen...",
+    "selectOptions": "Kies een uitvoering",
+    "addedToCartMessage": "Toegevoegd aan winkelwagen",
+    "addedToCartDescription": "{name} staat in je winkelwagen",
+    "errorTitle": "Fout",
+    "errorAddToCart": "Toevoegen aan winkelwagen is mislukt",
+    "sku": "Artikelnr.: {sku}",
+    "from": "Vanaf",
+    "noImage": "Geen afbeelding",
+    "featuredProducts": "Uitgelichte laptops",
+    "relatedProducts": "Vergelijkbare producten",
+    "viewAllProducts": "Bekijk alle producten",
+    "notFound": "Product niet gevonden",
+    "home": "Home",
+    "noProductsFound": "Geen producten gevonden",
+    "shopProductAt": "Koop de {name} bij {siteName}",
+    "productCount": "{count, plural, one {# product} other {# producten}}",
+    "trustBadges": {
+      "fastShipping": "Morgen in huis",
+      "freeReturns": "14 dagen bedenktijd",
+      "secureCheckout": "Veilig betalen",
+      "guarantee": "12 maanden garantie"
+    },
+    "faq": {
+      "title": "Veelgestelde vragen",
+      "shipping": {
+        "question": "Hoe snel wordt mijn laptop bezorgd?",
+        "answer": "Op werkdagen voor 17:00 besteld is meestal de volgende werkdag in huis. We verzenden met PostNL binnen Nederland voor € 4,95."
+      },
+      "returns": {
+        "question": "Kan ik mijn laptop retourneren?",
+        "answer": "Ja. Je hebt 14 dagen bedenktijd vanaf de dag dat je de laptop ontvangt. Meld je retour aan via je account of via de retourpagina; je krijgt het aankoopbedrag binnen 14 dagen terug."
+      },
+      "tracking": {
+        "question": "Hoe volg ik mijn bestelling?",
+        "answer": "Zodra je bestelling is verzonden, ontvang je een e-mail met een track-and-tracecode. Je kunt de status ook altijd bekijken onder Mijn bestellingen."
+      },
+      "in3": {
+        "question": "Kan ik in 3 termijnen betalen?",
+        "answer": "Ja, met in3 betaal je in drie gelijke termijnen zonder rente: de eerste bij het afrekenen via iDEAL, de andere twee binnen 30 en 60 dagen. Beschikbaar voor bestellingen binnen het toegestane bedrag, voor klanten in Nederland."
+      }
+    },
+    "refurbishedCondition": "Refurbished · conditie: {condition}"
+  }
+}

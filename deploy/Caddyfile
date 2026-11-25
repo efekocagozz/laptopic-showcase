@@ -1,0 +1,21 @@
+# Caddy obtains and renews HTTPS certificates for both domains automatically.
+# Point the DNS records of both domains to this server before starting it.
+
+{$SHOP_DOMAIN} {
+	encode zstd gzip
+	reverse_proxy storefront:3001
+}
+
+{$API_DOMAIN} {
+	encode zstd gzip
+	header {
+		Strict-Transport-Security "max-age=63072000; includeSubDomains"
+		X-Content-Type-Options nosniff
+		Referrer-Policy strict-origin-when-cross-origin
+		-Server
+	}
+	# Uploaded product images can be cached by browsers for a week.
+	@assets path /assets/*
+	header @assets Cache-Control "public, max-age=604800"
+	reverse_proxy server:3000
+}

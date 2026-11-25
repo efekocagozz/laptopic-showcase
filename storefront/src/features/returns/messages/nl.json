@@ -1,0 +1,30 @@
+{
+  "Returns": {
+    "pageTitle": "Retour aanmelden",
+    "intro": "Meld je retour aan binnen 14 dagen nadat je je bestelling hebt ontvangen. Je vindt je bestelnummer in de bevestigingsmail.",
+    "orderCode": "Bestelnummer",
+    "emailAddress": "E-mailadres waarmee je hebt besteld",
+    "reason": "Reden",
+    "reasons": {
+      "WITHDRAWAL": "Ik wil gebruikmaken van mijn bedenktijd",
+      "DEFECT": "Het product is defect",
+      "WRONG_ITEM": "Ik heb een verkeerd product ontvangen",
+      "OTHER": "Anders"
+    },
+    "comment": "Toelichting (optioneel)",
+    "submit": "Retour aanmelden",
+    "submitting": "Bezig met versturen...",
+    "orderCodeRequired": "Vul je bestelnummer in",
+    "invalidEmail": "Vul een geldig e-mailadres in",
+    "commentTooLong": "Je toelichting mag maximaal 1000 tekens zijn",
+    "successTitle": "Retouraanvraag ontvangen",
+    "success": "We hebben je retouraanvraag voor bestelling {code} ontvangen. Je krijgt een bevestiging per e-mail en binnen twee werkdagen een retourlabel.",
+    "errors": {
+      "ORDER_NOT_FOUND": "We konden geen bestelling vinden met dit bestelnummer en e-mailadres.",
+      "NOT_RETURNABLE": "Deze bestelling kan (nog) niet worden geretourneerd. Neem contact met ons op.",
+      "RETURN_PERIOD_EXPIRED": "De retourtermijn voor deze bestelling is verlopen. Neem contact met ons op als je denkt dat dit niet klopt.",
+      "INVALID_INPUT": "Controleer de ingevulde gegevens.",
+      "UNKNOWN": "Er ging iets mis. Probeer het later opnieuw."
+    }
+  }
+}

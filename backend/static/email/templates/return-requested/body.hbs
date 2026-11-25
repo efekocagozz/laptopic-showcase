@@ -1,0 +1,22 @@
+{{> header title="Retouraanvraag ontvangen" }}
+
+<mj-section background-color="#ffffff" border-radius="12px" padding="24px">
+    <mj-column>
+        <mj-text>
+            <h2>We hebben je retouraanvraag ontvangen</h2>
+            Hoi {{ firstName }}, bedankt voor het doorgeven. We nemen binnen twee werkdagen contact
+            met je op met een retourlabel en verdere instructies.
+        </mj-text>
+        <mj-text>
+            <strong>Bestelnummer:</strong> {{ orderCode }}<br />
+            <strong>Reden:</strong> {{ reason }}
+            {{#if comment }}<br /><strong>Toelichting:</strong> {{ comment }}{{/if}}
+        </mj-text>
+        <mj-text font-size="13px" color="#6b7280">
+            Na ontvangst en controle van het product betalen we het aankoopbedrag binnen 14 dagen terug via de
+            betaalmethode die je hebt gebruikt. Heb je met in3 betaald? Dan verwerkt in3 de terugbetaling.
+        </mj-text>
+    </mj-column>
+</mj-section>
+
+{{> footer }}

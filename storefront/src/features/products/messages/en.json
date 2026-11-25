@@ -1,0 +1,51 @@
+{
+  "Product": {
+    "inStock": "In Stock",
+    "outOfStock": "Out of Stock",
+    "addToCart": "Add to Cart",
+    "addedToCart": "Added to Cart",
+    "adding": "Adding...",
+    "selectOptions": "Select Options",
+    "addedToCartMessage": "Added to cart",
+    "addedToCartDescription": "{name} has been added to your cart",
+    "errorTitle": "Error",
+    "errorAddToCart": "Failed to add item to cart",
+    "sku": "SKU: {sku}",
+    "from": "From",
+    "noImage": "No image",
+    "featuredProducts": "Featured laptops",
+    "relatedProducts": "Related Products",
+    "viewAllProducts": "View All Products",
+    "notFound": "Product Not Found",
+    "home": "Home",
+    "noProductsFound": "No products found",
+    "shopProductAt": "Shop {name} at {siteName}",
+    "productCount": "{count, plural, one {# product} other {# products}}",
+    "trustBadges": {
+      "fastShipping": "Next-day delivery",
+      "freeReturns": "14-day cooling-off period",
+      "secureCheckout": "Secure payment",
+      "guarantee": "12-month warranty"
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "shipping": {
+        "question": "How fast will my laptop arrive?",
+        "answer": "Orders placed on working days before 17:00 usually arrive the next working day. We ship with PostNL within the Netherlands for € 4.95."
+      },
+      "returns": {
+        "question": "Can I return my laptop?",
+        "answer": "Yes. You have a 14-day cooling-off period from the day you receive the laptop. Request a return from your account or the returns page and you'll be refunded within 14 days."
+      },
+      "tracking": {
+        "question": "How can I track my order?",
+        "answer": "Once your order ships, you'll receive an email with a tracking code. You can also check the status any time under My Orders."
+      },
+      "in3": {
+        "question": "Can I pay in 3 installments?",
+        "answer": "Yes. With in3 you pay in three equal, interest-free installments: the first at checkout via iDEAL, the other two within 30 and 60 days. Available for orders within the allowed amount, for customers in the Netherlands."
+      }
+    },
+    "refurbishedCondition": "Refurbished · condition: {condition}"
+  }
+}

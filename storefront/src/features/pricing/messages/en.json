@@ -1,0 +1,6 @@
+{
+  "In3": {
+    "installments": "or {count} × {amount} with in3",
+    "noInterest": "0% interest"
+  }
+}

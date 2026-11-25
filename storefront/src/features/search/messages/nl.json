@@ -1,0 +1,22 @@
+{
+  "Sort": {
+    "nameAsc": "Naam: A tot Z",
+    "nameDesc": "Naam: Z tot A",
+    "priceAsc": "Prijs: laag naar hoog",
+    "priceDesc": "Prijs: hoog naar laag",
+    "placeholder": "Sorteren op"
+  },
+  "Filters": {
+    "title": "Filters",
+    "clearAll": "Alles wissen",
+    "filtersButton": "Filters"
+  },
+  "Search": {
+    "title": "Zoeken",
+    "pageTitle": "Producten zoeken",
+    "resultsFor": "Zoekresultaten voor \"{query}\"",
+    "resultsTitle": "Zoekresultaten voor \"{query}\"",
+    "metaDescription": "Vind producten voor \"{query}\" bij {siteName}",
+    "metaCatalogDescription": "Doorzoek ons assortiment bij {siteName}"
+  }
+}

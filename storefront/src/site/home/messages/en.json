@@ -1,0 +1,38 @@
+{
+  "Hero": {
+    "title": "Business laptops,",
+    "titleHighlight": "like new",
+    "subtitle": "Refurbished ThinkPad, Latitude and EliteBook. Tested, with a 12-month warranty, and payable in 3 interest-free installments.",
+    "shopNow": "Shop laptops",
+    "viewCollections": "All categories",
+    "pointTested": "Tested, cleaned and freshly installed",
+    "pointWarranty": "12-month warranty and 14-day cooling-off period",
+    "pointDelivery": "Order before 17:00, delivered tomorrow",
+    "in3Badge": "0% interest",
+    "in3Title": "Pay in 3 installments with in3",
+    "in3Step1": "Today you pay the first part via iDEAL.",
+    "in3Step2": "After 30 days the second part follows.",
+    "in3Step3": "After 60 days you pay the last part.",
+    "in3Note": "No interest or extra costs. Available for orders within the in3 amount, for customers in the Netherlands."
+  },
+  "Home": {
+    "pageTitle": "Refurbished business laptops",
+    "description": "Refurbished business laptops from Lenovo, Dell and HP. Tested, with a 12-month warranty, and payable in 3 installments with in3.",
+    "ogDescription": "Refurbished business laptops with warranty, payable in 3 installments.",
+    "whyShopWithUs": "Why Laptopic",
+    "features": {
+      "highQuality": {
+        "title": "Tested and cleaned",
+        "description": "Every laptop is checked, cleaned and freshly installed"
+      },
+      "bestPrices": {
+        "title": "Pay in 3 installments",
+        "description": "With in3 you pay in three parts, without interest or extra costs"
+      },
+      "fastDelivery": {
+        "title": "Next-day delivery",
+        "description": "Order on a working day before 17:00, delivered next working day by PostNL"
+      }
+    }
+  }
+}

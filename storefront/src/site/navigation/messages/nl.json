@@ -1,0 +1,19 @@
+{
+  "Navigation": {
+    "openMenu": "Menu openen",
+    "menu": "Menu",
+    "searchProducts": "Zoek een laptop...",
+    "shopAll": "Alle producten",
+    "collections": "Categorieën",
+    "account": "Account",
+    "profile": "Profiel",
+    "orders": "Bestellingen",
+    "addresses": "Adressen",
+    "signIn": "Inloggen",
+    "signOut": "Uitloggen",
+    "greeting": "Hoi {name}",
+    "shoppingCart": "Winkelwagen",
+    "switchLanguage": "Taal wijzigen",
+    "switchCurrency": "Valuta wijzigen"
+  }
+}

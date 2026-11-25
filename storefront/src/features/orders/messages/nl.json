@@ -1,0 +1,32 @@
+{
+  "OrderStatus": {
+    "AddingItems": "Winkelwagen",
+    "ArrangingPayment": "Wacht op betaling",
+    "PaymentAuthorized": "Betaling geautoriseerd",
+    "PaymentSettled": "Betaald",
+    "PartiallyShipped": "Deels verzonden",
+    "Shipped": "Verzonden",
+    "PartiallyDelivered": "Deels bezorgd",
+    "Delivered": "Bezorgd",
+    "Cancelled": "Geannuleerd"
+  },
+  "OrderConfirmation": {
+    "pageTitle": "Bestelling geplaatst",
+    "orderConfirmed": "Bedankt voor je bestelling!",
+    "thankYou": "We hebben je bestelling ontvangen. Je bestelnummer is",
+    "emailConfirmation": "Je ontvangt een e-mail met de details van je bestelling en de track-and-tracecode zodra we verzenden.",
+    "orderSummary": "Overzicht",
+    "qty": "Aantal: {quantity}",
+    "total": "Totaal",
+    "shippingAddress": "Bezorgadres",
+    "continueShopping": "Verder winkelen",
+    "viewOrders": "Mijn bestellingen",
+    "paymentPendingTitle": "We verwerken je betaling",
+    "paymentPending": "Een moment geduld: we wachten op de bevestiging van Mollie voor bestelling {code}.",
+    "paymentNotConfirmedTitle": "Betaling nog niet bevestigd",
+    "paymentNotConfirmed": "We hebben (nog) geen bevestiging van je betaling ontvangen. Is de betaling mislukt of afgebroken? Dan staat je winkelwagen nog klaar en kun je het opnieuw proberen.",
+    "tryAgain": "Opnieuw proberen",
+    "cancelledTitle": "Bestelling geannuleerd",
+    "cancelled": "Bestelling {code} is geannuleerd. Heb je al betaald? Dan krijg je het bedrag automatisch terug."
+  }
+}

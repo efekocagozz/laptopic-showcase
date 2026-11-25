@@ -1,0 +1,14 @@
+{{> header title="Bevestig je e-mailadres" }}
+
+<mj-section background-color="#ffffff" border-radius="12px" padding="24px">
+    <mj-column>
+        <mj-text>
+            <h2>Welkom bij Laptopic!</h2>
+            Bedankt voor het aanmaken van je account. Klik op de knop hieronder om je e-mailadres te bevestigen.
+        </mj-text>
+        <mj-button href="{{ verifyEmailAddressUrl }}?token={{ verificationToken }}">E-mailadres bevestigen</mj-button>
+        <mj-text font-size="13px" color="#6b7280">Heb je geen account aangemaakt? Dan kun je deze e-mail negeren.</mj-text>
+    </mj-column>
+</mj-section>
+
+{{> footer }}

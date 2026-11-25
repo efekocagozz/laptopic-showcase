@@ -1,0 +1,25 @@
+{
+  "Common": {
+    "loading": "Laden...",
+    "sending": "Bezig met versturen...",
+    "sku": "Artikelnr.",
+    "siteDescription": "Refurbished zakelijke laptops van Lenovo, Dell en HP bij {siteName}. Getest, met garantie, en te betalen in 3 termijnen."
+  },
+  "Errors": {
+    "fieldsRequired": "Vul alle velden in",
+    "passwordsMismatch": "De wachtwoorden komen niet overeen",
+    "unexpectedError": "Er ging iets onverwachts mis. Probeer het opnieuw.",
+    "emailPasswordRequired": "Vul je e-mailadres en wachtwoord in",
+    "verifyEmailFirst": "Bevestig eerst je e-mailadres voordat je inlogt.",
+    "invalidCredentials": "Onjuist e-mailadres of wachtwoord.",
+    "emailRequired": "Vul je e-mailadres in",
+    "firstLastNameRequired": "Vul je voor- en achternaam in",
+    "passwordEmailRequired": "Vul je wachtwoord en nieuwe e-mailadres in",
+    "invalidEmail": "Vul een geldig e-mailadres in",
+    "failedUpdateCustomer": "Je gegevens konden niet worden bijgewerkt",
+    "newPasswordMustDiffer": "Je nieuwe wachtwoord moet anders zijn dan je huidige",
+    "failedPasswordReset": "Het aanvragen van een nieuw wachtwoord is mislukt",
+    "verificationTokenRequired": "Bevestigingscode ontbreekt",
+    "failedAddToCart": "Toevoegen aan winkelwagen is mislukt"
+  }
+}
