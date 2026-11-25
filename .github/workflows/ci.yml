@@ -39,7 +39,7 @@ jobs:
         working-directory: automation
     steps:
       - uses: actions/checkout@v7
-      - uses: actions/setup-python@v6
+      - uses: actions/setup-python@v7
         with:
           python-version: '3.12'
           cache: pip
@@ -106,7 +106,7 @@ jobs:
 
       # Integration check for the Python tool: a real Admin API login and queries against the seeded shop.
       # Exit code 1 only means "needs attention" (the demo catalogue has low-stock variants).
-      - uses: actions/setup-python@v6
+      - uses: actions/setup-python@v7
         with:
           python-version: '3.12'
       - name: Python ops report against the running backend
