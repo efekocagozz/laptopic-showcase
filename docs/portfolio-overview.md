@@ -42,6 +42,9 @@ returns, and knowing every morning what needs attention.
 5. **Operations automation as a separate Python tool** ([ADR 0005](decisions/0005-python-ops-automation.md)).
    Cron scripts that only need the public Admin API don't belong inside the shop server. The backend stays the
    authority on the rules.
+6. **Caddy as the reverse proxy** ([ADR 0006](decisions/0006-caddy-as-reverse-proxy.md)). It terminates HTTPS
+   with automatic Let's Encrypt certificates and routes the shop and API domains, so only ports 80/443 are open.
+   Nginx would work the same way, but it needs certbot and more config.
 
 ## Hard problems
 
